@@ -1,0 +1,37 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+    Layout = "~/Areas/Identity/Pages/Account/_AuthLayout.cshtml";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <section>
+            <form id="account" method="post">
+                <h6 style="text-align:center;">Welcome to NEw E Waste Application.</h6>
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.username" class="form-control" autocomplete="username" aria-required="true" placeholder="username" />
+                    <label asp-for="Input.username" class="form-label">Username</label>
+                    <span asp-validation-for="Input.username" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
+                    <label asp-for="Input.password" class="form-label">Password</label>
+                    <span asp-validation-for="Input.password" class="text-danger"></span>
+                </div>
+
+                <div>
+                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

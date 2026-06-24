@@ -1,0 +1,20 @@
+name: Conditional Deploy
+
+on:
+  push:
+    branches: [ "lenon/ewaste" ]
+    paths:
+      - 'src/AccountService/DonorService/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Trigger AWS CodePipeline
+        uses: zulhfreelancer/aws-codepipeline-action@v1.0.7
+        with:
+          aws-region: ap-southeast-1
+          aws-access-key: XXXXXXXXXXX
+          aws-secret-key: XXXXXXXXXXXXXXXXXXXXX
+          pipeline-name: donor
